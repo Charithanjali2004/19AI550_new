@@ -1,6 +1,6 @@
 # Ex.No: 4  Implementation of Kinematic movement -seek and Flee behavior in Unity
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:   04/11/26                                                                       
+### REGISTER NUMBER :  212224240069
 ### AIM: 
 To write a program to simulate the process of seek and Flee behavior in Unity without NavigationMeshAgent. 
 ### Algorithm:
@@ -25,30 +25,23 @@ To write a program to simulate the process of seek and Flee behavior in Unity wi
     
 ### Program:
 ```
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class seekScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Transform target;  // The object to seek
-    public float speed = 5f;  // Movement speed
-    void Start()
-    {
-        
-    }
+    public Transform target;
+    public float speed = 5f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (target == null) return;  // Exit if no target is assigned
-
-        // Calculate the desired direction
-        Vector3 direction = (target.position - transform.position).normalized;
-
-        // Move the object towards the target
-        transform.position += direction * speed * Time.deltaTime;
+        if (target != null)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target.position,
+                speed * Time.deltaTime
+            );
+        }
     }
 }
 ```
@@ -82,12 +75,17 @@ public class fleeScript : MonoBehaviour
 ```
 ### Output:
 
+## SEEK
 
+<img width="1600" height="948" alt="image" src="https://github.com/user-attachments/assets/5625fa6b-c928-45e0-87ef-4d139931f0aa" />
 
+<img width="1600" height="955" alt="image" src="https://github.com/user-attachments/assets/a5b52042-e0e3-473e-bcab-6469e0fce00a" />
 
+## FLEE
 
+<img width="1600" height="948" alt="image" src="https://github.com/user-attachments/assets/642519d9-671d-4aa4-acc3-90c4d18d5d4f" />
 
-
+<img width="1600" height="948" alt="image" src="https://github.com/user-attachments/assets/06c74ccf-5386-443c-94d6-d276cbc96024" />
 
 
 ### Result:
